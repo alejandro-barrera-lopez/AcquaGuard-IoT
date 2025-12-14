@@ -1,0 +1,88 @@
+//Sensor Luminosidad
+
+#include <WiFi.h>
+#include <PubSubClient.h>
+
+// Credenciais da rede Wifi
+const char* ssid = "D290"; 
+const char* password = "T22ceZexseXtcH"; 
+
+// Configuración do broker MQTT
+const char* mqttServer = "test.mosquitto.org";
+const int mqttPort = 1883;
+const char* mqttUser = "";
+const char* mqttPassword = "";
+
+// PIN do sensor de luminosidade (A4/IO10)
+const int SENSOR_PIN = 10; 
+
+// Cliente WiFi e MQTT
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+void setup() {
+    Serial.begin(115200); // Configuración do porto serie [cite: 764]
+    
+    // Configuración do pin do sensor (como entrada analóxica)
+    pinMode(SENSOR_PIN, INPUT); 
+
+    // Conexión á WiFi
+    Serial.println("\nConectando á WiFi...");
+    WiFi.begin(ssid, password);
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println("\nWiFi conectada!");
+    Serial.print("IP: ");
+    Serial.println(WiFi.localIP());
+
+    // Configuración de MQTT
+    client.setServer(mqttServer, mqttPort);
+    
+    // Conexión ao broker MQTT (ID ÚNICO)
+    while (!client.connected()) {
+        Serial.print("Intentando conectar a broker MQTT...");
+        if (client.connect("nodoJV")) { // Use un ID de cliente único!
+            Serial.println("conectado!");
+        } else {
+            Serial.print("erro=");
+            Serial.print(client.state());
+            Serial.println(" probando de novo...");
+            delay(2000);
+        }
+    }
+}
+
+void loop() {
+    client.loop(); // Mantiene a conexión MQTT activa
+    
+    // 1. Lectura do Sensor de Luminosidade (o ESP32-S3 usa 12 bits -> 0 a 4095)
+    int rawValue = analogRead(SENSOR_PIN); 
+
+    // Opción A: Conversión Logarítmica Simétrica (Simula mejor la percepción humana)
+    float analogValue = (float)rawValue; // 0 - 4095
+    float luxScale = 4095.0 - analogValue; // Invertir el valor (asumimos que 0 es más oscuro)
+    int percentage = map(luxScale, 0, 4095, 0, 100); // Mapeo simple de 0 a 100
+
+    // Limitar para asegurar que esté entre 0 y 100
+    if (percentage < 0) percentage = 0;
+    if (percentage > 100) percentage = 100;
+
+    // Envía el porcentaje de luz
+    char payload[16];
+    sprintf(payload, "%d", percentage);
+    
+    // 2. Conversión do valor a unha cadea de texto (payload)
+    //char payload[16];
+    //sprintf(payload, "%d", rawValue);
+    
+    // 3. Publicación ao Topic (debe coincidir con Node-RED)
+    const char* publishTopic = "devicesNAPIoT-P2"; // O Topic que escoita Node-RED 
+    client.publish(publishTopic, payload); 
+
+    Serial.print("Luminosidade (Pin 10): ");
+    Serial.println(payload);
+    
+    delay(5000); // Publica cada 5 segundos [cite: 869]
+}

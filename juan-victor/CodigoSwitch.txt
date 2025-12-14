@@ -1,0 +1,108 @@
+Actuador (LED/Buzzer)
+
+#include <WiFi.h>
+#include <PubSubClient.h>
+
+// Credenciales da rede Wifi 
+const char* ssid = "D290"; 
+const char* password = "T22ceZexseXtcH"; 
+
+// Configuración do broker MQTT
+const char* mqtt_server = "test.mosquitto.org";
+const int mqtt_port = 1883;
+// Topic para recibir comandos desde Node-RED
+const char* mqtt_topic_sub = "devices/NAPIoT-P2-Rec"; 
+
+// PIN do actuador (LED - D18/IO14)
+const int ACTUATOR_PIN = 14; 
+const int ledPin = ACTUATOR_PIN; 
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+// Función de callback que procesa as mensaxes MQTT recibidas
+void callback(char* topic, byte* payload, unsigned int length) {
+    Serial.print("Mensaxe recibida [");
+    Serial.print(topic);
+    Serial.print("] ");
+
+    // Converte o payload a String para fácil comparación
+    String message;
+    for (int i=0; i < length; i++) {
+        message += (char) payload[i];
+    }
+    Serial.println(message);
+
+    // Controlamos o estado do LED en función da mensaxe ('0' ou '1')
+    if (message == "0") {
+        digitalWrite(ledPin, LOW); // Apaga o LED
+        Serial.println("ACTUADOR OFF (LED Apagado)");
+    } else if (message == "1") {
+        digitalWrite(ledPin, HIGH); // Acende o LED
+        Serial.println("ACTUADOR ON (LED Encendido)");
+    } else {
+        Serial.println("Comando descoñecido");
+    }
+}
+
+// Función para reconectar co broker MQTT
+void reconnect() {
+    while (!client.connected()) {
+        Serial.print("Intentando conectar a broker MQTT...");
+        // IMPORTANTE: Use un ID de cliente ÚNICO, diferente ao do sensor.
+        if (client.connect("NAPIoT-P2-Actuador-JV")) { 
+            Serial.println("conectado!");
+            // Subscripción ao topic para recibir comandos
+            client.subscribe(mqtt_topic_sub);
+            Serial.print("Subscrito ao topic: ");
+            Serial.println(mqtt_topic_sub);
+        } else {
+            Serial.print("erro na conexión, erro=");
+            Serial.print(client.state());
+            Serial.println(" probando de novo en 5 segundos");
+            delay(5000);
+        }
+    }
+}
+
+// Función para conectar á WiFi (setup_wifi adaptado)
+void setup_wifi() {
+    // ... (código de conexión WiFi) ...
+    delay(10);
+    Serial.println();
+    Serial.print("Conectando a ");
+    Serial.println(ssid);
+    WiFi.begin(ssid, password);
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(1000);
+        Serial.print(".");
+    }
+    Serial.println("");
+    Serial.println("WiFi conectada!");
+    Serial.print("IP: ");
+    Serial.println(WiFi.localIP());
+}
+
+void setup() {
+    // Configuración do pin do LED/Actuador
+    pinMode(ledPin, OUTPUT);
+    digitalWrite(ledPin, LOW); // Asegurarse de que estea apagado ao inicio
+
+    // Configuración do porto serie
+    Serial.begin(115200);
+
+    // Conexión coa WiFi
+    setup_wifi();
+
+    // Configuración de MQTT
+    client.setServer(mqtt_server, mqtt_port);
+    client.setCallback(callback);
+}
+
+void loop() {
+    // Verifica se o cliente está conectado e mantén a conexión
+    if (!client.connected()) {
+        reconnect();
+    }
+    client.loop();
+}
