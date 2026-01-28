@@ -6,7 +6,7 @@ const char* ssid = "ssid";
 const char* password = "pass";
 
 // --- Configuración de servidores MQTT (Fog y Edge) ---
-const char* mqtt_servers[] = {"10.97.193.97", "10.97.193.47"}; // 0: Fog, 1: Edge
+const char* mqtt_servers[] = {"10.28.219.97", "10.28.219.47"}; // 0: Fog, 1: Edge
 const int num_servers = 2;
 const int   mqtt_port   = 1883;
 
@@ -16,7 +16,7 @@ const char* mqtt_topic_sub = "acqua-guard/sebastian/actuador";
 const char* mqtt_client_id = "esp32s3-sebas-node";
 
 // --- Configuración PINES ---
-const int VAPOR_SENSOR_PIN = 4; // Pin para el sensor de vapor (analógico)
+const int VAPOR_SENSOR_PIN = 2; // Pin para el sensor de vapor (analógico)
 const int buzzerPin = 17; // Pin para el actuador (buzzer)
 const int ledPin = 21; // Pin para el LED integrado (GPIO 21)
 
@@ -24,11 +24,6 @@ const int ledPin = 21; // Pin para el LED integrado (GPIO 21)
 WiFiClient espClient;
 PubSubClient client(espClient);
 unsigned long lastSend = 0;
-
-// Variables para el manejo de la alarma
-bool alarmActive = false;
-unsigned long lastBuzzerToggle = 0;
-const long buzzerInterval = 125; // 125ms de intervalo para un toggle de 4Hz (8 cambios de estado por segundo)
 
 // --- Declaración de funciones ---
 void setup_wifi();
@@ -58,15 +53,6 @@ void loop() {
     if (millis() - lastSend > 5000) {
         lastSend = millis();
         enviarLecturaSensor();
-    }
-
-    // Si la alarma está activa, hacer sonar el buzzer de forma intermitente
-    if (alarmActive) {
-        unsigned long currentMillis = millis();
-        if (currentMillis - lastBuzzerToggle >= buzzerInterval) {
-            lastBuzzerToggle = currentMillis;
-            digitalWrite(buzzerPin, !digitalRead(buzzerPin));
-        }
     }
 }
 
@@ -121,24 +107,15 @@ void callback(char* topic, byte* payload, unsigned int length) {
     Serial.printf("Mensaje recibido [%s]: %s\n", topic, message.c_str());
 
     if (String(topic) == mqtt_topic_sub) {
-        if (message == "ALARM_ON") {
-            alarmActive = true;
-            Serial.println("Alarma ACTIVADA");
-        } else if (message == "ALARM_OFF") {
-            alarmActive = false;
-            digitalWrite(buzzerPin, LOW); // Asegurarse de que el buzzer se apaga
-            Serial.println("Alarma DESACTIVADA");
-        } else if (message == "BUZZER_ON") {
-            alarmActive = false; // Desactivar la alarma si se usa el control manual
-            digitalWrite(buzzerPin, HIGH);
-            Serial.println("Buzzer ON (manual)");
-        } else if (message == "BUZZER_OFF") {
-            alarmActive = false; // Desactivar la alarma si se usa el control manual
-            digitalWrite(buzzerPin, LOW);
-            Serial.println("Buzzer OFF (manual)");
-        } else if (message == "TOGGLE_LED") {
+        if (message == "TOGGLE_LED") {
             digitalWrite(ledPin, !digitalRead(ledPin));
             Serial.printf("LED state: %s\n", digitalRead(ledPin) ? "ON" : "OFF");
+        } else if (message == "BUZZER_ON") {
+            digitalWrite(buzzerPin, HIGH);
+            Serial.println("Buzzer ON");
+        } else if (message == "BUZZER_OFF") {
+            digitalWrite(buzzerPin, LOW);
+            Serial.println("Buzzer OFF");
         }
     }
 }
