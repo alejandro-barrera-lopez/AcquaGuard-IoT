@@ -1,0 +1,28 @@
+services:
+  # Servicio de Node-RED
+  node-red:
+    image: nodered/node-red:latest
+    container_name: cloudlet_nodered
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./node_red_data:/data
+    environment:
+      - TZ=Europe/Madrid
+    restart: unless-stopped
+    depends_on:
+      - mosquitto
+
+  # Servicio de Mosquitto
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: cloudlet_mosquitto
+    ports:
+      - "1883:1883" # Porto MQTT estándar
+      - "9001:9001" # WebSockets para acceso dende navegador
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    restart: unless-stopped
+

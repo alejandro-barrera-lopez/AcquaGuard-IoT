@@ -1,0 +1,1298 @@
+[
+    {
+        "id": "6387abeabe798fe7",
+        "type": "tab",
+        "label": "Dashboard AcquaGuard (3 Nodos)",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "42dbd6b913948d5c",
+        "type": "mqtt-broker",
+        "name": "Cloudlet Mosquitto",
+        "broker": "mosquitto",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a9e144f2d01878b6",
+        "type": "ui_tab",
+        "name": "AcquaGuard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f9453c89c31441b1",
+        "type": "ui_group",
+        "name": "Nodo: Sebastián (Vapor y alarma)",
+        "tab": "a9e144f2d01878b6",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "c1a7b82d3e4f",
+        "type": "ui_group",
+        "name": "Nodo: Álex (Motor y temperatura)",
+        "tab": "a9e144f2d01878b6",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "b2e8a1f7d4c3b2a1",
+        "type": "ui_group",
+        "name": "Nodo: Juan (Semáforo y luz)",
+        "tab": "a9e144f2d01878b6",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a1a2a3a4a5a6a7a8",
+        "type": "ui_group",
+        "name": "Control manual general",
+        "tab": "a9e144f2d01878b6",
+        "order": 4,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "292797267019d294",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "263c73bd794e5b50",
+        "type": "ui_group",
+        "name": "Predicción clima",
+        "tab": "a9e144f2d01878b6",
+        "order": 5,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "53a553ac6a8360a0",
+        "type": "mqtt in",
+        "z": "6387abeabe798fe7",
+        "name": "Sensor Vapor (Sebastián)",
+        "topic": "acqua-guard/sebastian/vapor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "42dbd6b913948d5c",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 210,
+        "y": 360,
+        "wires": [
+            [
+                "f1b2c3d4e5f6a7b8"
+            ]
+        ]
+    },
+    {
+        "id": "f1b2c3d4e5f6a7b8",
+        "type": "function",
+        "z": "6387abeabe798fe7",
+        "name": "Mapear Vapor 0-100%",
+        "func": "msg.payload = (msg.payload / 1023) * 100;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 300,
+        "wires": [
+            [
+                "37f7142b680788d7",
+                "b3c4d5e6f7a8b9c0",
+                "switch_vapor"
+            ]
+        ]
+    },
+    {
+        "id": "37f7142b680788d7",
+        "type": "ui_gauge",
+        "z": "6387abeabe798fe7",
+        "name": "Nivel de Vapor",
+        "group": "f9453c89c31441b1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Vapor",
+        "label": "%",
+        "format": "{{value | number:0}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 480,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a1b2c3d4e5f6a7b8",
+        "type": "mqtt in",
+        "z": "6387abeabe798fe7",
+        "name": "Sensor Temperatura (Álex)",
+        "topic": "acqua-guard/alex/temperatura",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "42dbd6b913948d5c",
+        "inputs": 0,
+        "x": 210,
+        "y": 140,
+        "wires": [
+            [
+                "c3d4e5f6a7b8c9d0",
+                "switch_temp"
+            ]
+        ]
+    },
+    {
+        "id": "c3d4e5f6a7b8c9d0",
+        "type": "ui_chart",
+        "z": "6387abeabe798fe7",
+        "name": "Histórico Temperatura",
+        "group": "c1a7b82d3e4f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura (ºC)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-5",
+        "ymax": "50",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 500,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "g7b8c9d0e1f2a3b4",
+        "type": "mqtt in",
+        "z": "6387abeabe798fe7",
+        "name": "Sensor Luminosidad (JV)",
+        "topic": "acqua-guard/juan-victor/luminosidad",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "42dbd6b913948d5c",
+        "inputs": 0,
+        "x": 210,
+        "y": 600,
+        "wires": [
+            [
+                "h8c9d0e1f2a3b4c5",
+                "switch_luz"
+            ]
+        ]
+    },
+    {
+        "id": "h8c9d0e1f2a3b4c5",
+        "type": "ui_gauge",
+        "z": "6387abeabe798fe7",
+        "name": "Nivel de Luminosidad",
+        "group": "b2e8a1f7d4c3b2a1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Luminosidad",
+        "label": "lux",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#000000",
+            "#e6e600",
+            "#ffff00"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 480,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "switch_temp",
+        "type": "switch",
+        "z": "6387abeabe798fe7",
+        "name": "Temp > 25ºC ?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "25",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "25",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [
+                "set_temp_alarm_true"
+            ],
+            [
+                "set_temp_alarm_false"
+            ]
+        ]
+    },
+    {
+        "id": "set_temp_alarm_true",
+        "type": "change",
+        "z": "6387abeabe798fe7",
+        "name": "flow.temp_alarm = true",
+        "rules": [
+            {
+                "t": "set",
+                "p": "temp_alarm",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 160,
+        "wires": [
+            [
+                "central_alarm_logic"
+            ]
+        ]
+    },
+    {
+        "id": "set_temp_alarm_false",
+        "type": "change",
+        "z": "6387abeabe798fe7",
+        "name": "flow.temp_alarm = false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "temp_alarm",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 220,
+        "wires": [
+            [
+                "central_alarm_logic"
+            ]
+        ]
+    },
+    {
+        "id": "switch_vapor",
+        "type": "switch",
+        "z": "6387abeabe798fe7",
+        "name": "Vapor > 70% ?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "70",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "70",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 600,
+        "y": 300,
+        "wires": [
+            [
+                "set_vapor_alarm_true"
+            ],
+            [
+                "set_vapor_alarm_false"
+            ]
+        ]
+    },
+    {
+        "id": "set_vapor_alarm_true",
+        "type": "change",
+        "z": "6387abeabe798fe7",
+        "name": "flow.vapor_alarm = true",
+        "rules": [
+            {
+                "t": "set",
+                "p": "vapor_alarm",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 260,
+        "wires": [
+            [
+                "central_alarm_logic"
+            ]
+        ]
+    },
+    {
+        "id": "set_vapor_alarm_false",
+        "type": "change",
+        "z": "6387abeabe798fe7",
+        "name": "flow.vapor_alarm = false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "vapor_alarm",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 300,
+        "wires": [
+            [
+                "central_alarm_logic"
+            ]
+        ]
+    },
+    {
+        "id": "switch_luz",
+        "type": "switch",
+        "z": "6387abeabe798fe7",
+        "name": "Luz < 10% ?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "10",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 460,
+        "y": 600,
+        "wires": [
+            [
+                "set_luz_alarm_true"
+            ],
+            [
+                "set_luz_alarm_false"
+            ]
+        ]
+    },
+    {
+        "id": "set_luz_alarm_true",
+        "type": "change",
+        "z": "6387abeabe798fe7",
+        "name": "flow.luz_alarm = true",
+        "rules": [
+            {
+                "t": "set",
+                "p": "luz_alarm",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 340,
+        "wires": [
+            [
+                "central_alarm_logic"
+            ]
+        ]
+    },
+    {
+        "id": "set_luz_alarm_false",
+        "type": "change",
+        "z": "6387abeabe798fe7",
+        "name": "flow.luz_alarm = false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "luz_alarm",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 380,
+        "wires": [
+            [
+                "central_alarm_logic"
+            ]
+        ]
+    },
+    {
+        "id": "central_alarm_logic",
+        "type": "function",
+        "z": "6387abeabe798fe7",
+        "name": "Lógica Central de Alarmas",
+        "func": "const temp_alarm = flow.get('temp_alarm') || false;\nconst vapor_alarm = flow.get('vapor_alarm') || false;\nconst luz_alarm = flow.get('luz_alarm') || false;\nconst temp_prevista_alta = flow.get('hay_Riesgo') || false;\n\nlet buzzer_msg = null;\nlet semaforo_msg = null;\n\nif (temp_alarm || vapor_alarm || luz_alarm || temp_prevista_alta) {\n// Lógica del Buzzer\n    buzzer_msg = { payload: 'ALARM_ON' };\n} else {\n    buzzer_msg = { payload: 'ALARM_OFF' };\n}\n\n// Lógica del Semáforo con combinaciones\nlet semaforo_command = 0;\nif (temp_alarm) {\n    semaforo_command |= 4; // Red\n}\nif (vapor_alarm) {\n    semaforo_command |= 1; // Green\n}\nif (luz_alarm) {\n    semaforo_command |= 2; // Yellow\n}\nif (temp_prevista_alta) {\n    semaforo_command = 7; // All ON\n}\n\nsemaforo_msg = { payload: semaforo_command.toString() };\n\n// Se envían dos mensajes, uno para cada actuador\nreturn [buzzer_msg, semaforo_msg];",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 280,
+        "wires": [
+            [
+                "rbe_buzzer"
+            ],
+            [
+                "rbe_semaforo"
+            ]
+        ]
+    },
+    {
+        "id": "rbe_buzzer",
+        "type": "rbe",
+        "z": "6387abeabe798fe7",
+        "name": "Filtrar Buzzer",
+        "func": "rbe",
+        "gap": "0",
+        "start": "",
+        "inout": "out",
+        "property": "payload",
+        "x": 1450,
+        "y": 360,
+        "wires": [
+            [
+                "e3c9d4e5f6a7"
+            ]
+        ]
+    },
+    {
+        "id": "rbe_semaforo",
+        "type": "rbe",
+        "z": "6387abeabe798fe7",
+        "name": "Filtrar Semáforo",
+        "func": "rbe",
+        "gap": "0",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 1460,
+        "y": 240,
+        "wires": [
+            [
+                "j0e1f2a3b4c5d6e7"
+            ]
+        ]
+    },
+    {
+        "id": "b3c4d5e6f7a8b9c0",
+        "type": "switch",
+        "z": "6387abeabe798fe7",
+        "name": "Control Válvula por Vapor",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "lt",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "5",
+                "vt": "num",
+                "v2": "10",
+                "v2t": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 810,
+        "y": 520,
+        "wires": [
+            [
+                "d4e5f6a7b8c9d0e1"
+            ],
+            [
+                "e5f6a7b8c9d0e1f2"
+            ],
+            [
+                "f6a7b8c9d0e1f2a3"
+            ]
+        ]
+    },
+    {
+        "id": "d4e5f6a7b8c9d0e1",
+        "type": "change",
+        "z": "6387abeabe798fe7",
+        "name": "Abrir Válvula (CCW)",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "CCW",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 480,
+        "wires": [
+            [
+                "f6a7b8c9d0e1f2a3_motor"
+            ]
+        ]
+    },
+    {
+        "id": "e5f6a7b8c9d0e1f2",
+        "type": "change",
+        "z": "6387abeabe798fe7",
+        "name": "Cerrar Válvula (CW)",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "CW",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 520,
+        "wires": [
+            [
+                "f6a7b8c9d0e1f2a3_motor"
+            ]
+        ]
+    },
+    {
+        "id": "f6a7b8c9d0e1f2a3",
+        "type": "change",
+        "z": "6387abeabe798fe7",
+        "name": "Parar Válvula (STOP)",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "STOP",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 560,
+        "wires": [
+            [
+                "f6a7b8c9d0e1f2a3_motor"
+            ]
+        ]
+    },
+    {
+        "id": "f6a7b8c9d0e1f2a3_motor",
+        "type": "mqtt out",
+        "z": "6387abeabe798fe7",
+        "name": "Comando Motor Álex",
+        "topic": "acqua-guard/alex/actuador",
+        "broker": "42dbd6b913948d5c",
+        "x": 1360,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "e3c9d4e5f6a7",
+        "type": "mqtt out",
+        "z": "6387abeabe798fe7",
+        "name": "Comando Buzzer Sebas",
+        "topic": "acqua-guard/sebastian/actuador",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "42dbd6b913948d5c",
+        "x": 1770,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "j0e1f2a3b4c5d6e7",
+        "type": "mqtt out",
+        "z": "6387abeabe798fe7",
+        "name": "Comando Semáforo JV",
+        "topic": "acqua-guard/juan-victor/actuador",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "42dbd6b913948d5c",
+        "x": 1890,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "btn_abrir",
+        "type": "ui_button",
+        "z": "6387abeabe798fe7",
+        "name": "",
+        "group": "a1a2a3a4a5a6a7a8",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Abrir válvula",
+        "payload": "CCW",
+        "payloadType": "str",
+        "topic": "topic",
+        "x": 1070,
+        "y": 620,
+        "wires": [
+            [
+                "f6a7b8c9d0e1f2a3_motor"
+            ]
+        ]
+    },
+    {
+        "id": "btn_medio",
+        "type": "ui_button",
+        "z": "6387abeabe798fe7",
+        "name": "",
+        "group": "a1a2a3a4a5a6a7a8",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Medio abierto",
+        "payload": "STOP",
+        "payloadType": "str",
+        "topic": "topic",
+        "x": 1060,
+        "y": 660,
+        "wires": [
+            [
+                "f6a7b8c9d0e1f2a3_motor"
+            ]
+        ]
+    },
+    {
+        "id": "btn_cerrar",
+        "type": "ui_button",
+        "z": "6387abeabe798fe7",
+        "name": "",
+        "group": "a1a2a3a4a5a6a7a8",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Cerrar válvula",
+        "payload": "CW",
+        "payloadType": "str",
+        "topic": "topic",
+        "x": 1060,
+        "y": 700,
+        "wires": [
+            [
+                "f6a7b8c9d0e1f2a3_motor"
+            ]
+        ]
+    },
+    {
+        "id": "btn_red",
+        "type": "ui_button",
+        "z": "6387abeabe798fe7",
+        "name": "",
+        "group": "a1a2a3a4a5a6a7a8",
+        "order": 4,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "ROJO",
+        "color": "white",
+        "bgcolor": "red",
+        "payload": "4",
+        "payloadType": "str",
+        "topic": "topic",
+        "x": 1490,
+        "y": 100,
+        "wires": [
+            [
+                "j0e1f2a3b4c5d6e7"
+            ]
+        ]
+    },
+    {
+        "id": "btn_yellow",
+        "type": "ui_button",
+        "z": "6387abeabe798fe7",
+        "name": "",
+        "group": "a1a2a3a4a5a6a7a8",
+        "order": 5,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "AMARILLO",
+        "color": "black",
+        "bgcolor": "yellow",
+        "payload": "2",
+        "payloadType": "str",
+        "topic": "topic",
+        "x": 1470,
+        "y": 140,
+        "wires": [
+            [
+                "j0e1f2a3b4c5d6e7"
+            ]
+        ]
+    },
+    {
+        "id": "btn_green",
+        "type": "ui_button",
+        "z": "6387abeabe798fe7",
+        "name": "",
+        "group": "a1a2a3a4a5a6a7a8",
+        "order": 6,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "VERDE",
+        "color": "white",
+        "bgcolor": "green",
+        "payload": "1",
+        "payloadType": "str",
+        "topic": "topic",
+        "x": 1480,
+        "y": 180,
+        "wires": [
+            [
+                "j0e1f2a3b4c5d6e7"
+            ]
+        ]
+    },
+    {
+        "id": "btn_off",
+        "type": "ui_button",
+        "z": "6387abeabe798fe7",
+        "name": "",
+        "group": "a1a2a3a4a5a6a7a8",
+        "order": 7,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "Apagar semáforo",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "str",
+        "x": 1470,
+        "y": 280,
+        "wires": [
+            [
+                "269546fa785b05f2"
+            ]
+        ]
+    },
+    {
+        "id": "d2b8c3d4e5f6",
+        "type": "ui_button",
+        "z": "6387abeabe798fe7",
+        "name": "",
+        "group": "a1a2a3a4a5a6a7a8",
+        "order": 8,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Activar buzzer",
+        "payload": "BUZZER_ON",
+        "payloadType": "str",
+        "topic": "topic",
+        "x": 1460,
+        "y": 400,
+        "wires": [
+            [
+                "e3c9d4e5f6a7"
+            ]
+        ]
+    },
+    {
+        "id": "e2b8c3d4e5f7",
+        "type": "ui_button",
+        "z": "6387abeabe798fe7",
+        "name": "",
+        "group": "a1a2a3a4a5a6a7a8",
+        "order": 9,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Parar buzzer",
+        "payload": "BUZZER_OFF",
+        "payloadType": "str",
+        "topic": "topic",
+        "x": 1470,
+        "y": 320,
+        "wires": [
+            [
+                "41cad2b7c685ca18"
+            ]
+        ]
+    },
+    {
+        "id": "14ed5688344d7992",
+        "type": "inject",
+        "z": "6387abeabe798fe7",
+        "name": "Inject 2 mi",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "num"
+            }
+        ],
+        "repeat": "900",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "120",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 860,
+        "wires": [
+            [
+                "cd113f554d9e415f"
+            ]
+        ]
+    },
+    {
+        "id": "cd113f554d9e415f",
+        "type": "openweathermap",
+        "z": "6387abeabe798fe7",
+        "name": "Clima",
+        "wtype": "forecast",
+        "lon": "",
+        "lat": "",
+        "city": "Vigo",
+        "country": "España",
+        "language": "en",
+        "x": 330,
+        "y": 860,
+        "wires": [
+            [
+                "2341323117411237",
+                "e7f9766ad5f5fe2b",
+                "732c1ac9482644c3"
+            ]
+        ]
+    },
+    {
+        "id": "e7f9766ad5f5fe2b",
+        "type": "function",
+        "z": "6387abeabe798fe7",
+        "name": "Temperatura",
+        "func": "const list = Array.isArray(msg.payload) ? msg.payload : msg.payload?.list;\nif (!list || list.length === 0) return null;\n\nconst serie = \"Temp prevista (°C)\";\n\n// mandamos muchos mensajes (1 por punto)\nlist.forEach(p => {\n  if (p?.dt && p?.main?.temp !== undefined) {\n    node.send({\n      topic: serie,\n      payload: Number(p.main.temp),\n      timestamp: p.dt * 1000\n    });\n  }\n});\n\nreturn null; // importante: ya enviamos todo con node.send",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 860,
+        "wires": [
+            [
+                "0eda01a0a5651455"
+            ]
+        ]
+    },
+    {
+        "id": "0eda01a0a5651455",
+        "type": "ui_chart",
+        "z": "6387abeabe798fe7",
+        "name": "",
+        "group": "263c73bd794e5b50",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Predicción clima",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-5",
+        "ymax": "50",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 740,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "732c1ac9482644c3",
+        "type": "function",
+        "z": "6387abeabe798fe7",
+        "name": "Evaluar_Alarma_Temp_Prevista",
+        "func": "// 1. Verificamos que el payload sea un array de predicciones\nif (!msg.payload || !Array.isArray(msg.payload)) {\n    return null;\n}\n\nconst UMBRAL_ALTO = 25; // °C\nconst UMBRAL_BAJO = 5;  // °C\n\n// 2. Evaluamos si existe riesgo térmico futuro\nconst hayRiesgo = msg.payload.some(p => \n    p.main.temp >= UMBRAL_ALTO || p.main.temp <= UMBRAL_BAJO\n);\n\n// 3. Guardamos el resultado en el contexto de flujo\nflow.set(\"hay_Riesgo\", hayRiesgo);\n\n// 4. Emitimos el booleano (útil para switch/debug)\nmsg.payload = hayRiesgo;\n\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 800,
+        "wires": [
+            [
+                "6efd8e723ac05eca"
+            ]
+        ]
+    },
+    {
+        "id": "6efd8e723ac05eca",
+        "type": "switch",
+        "z": "6387abeabe798fe7",
+        "name": "Hay_Riesgo_Temp",
+        "property": "hay_Riesgo",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 910,
+        "y": 420,
+        "wires": [
+            [
+                "central_alarm_logic"
+            ],
+            [
+                "central_alarm_logic"
+            ]
+        ]
+    },
+    {
+        "id": "2341323117411237",
+        "type": "debug",
+        "z": "6387abeabe798fe7",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "41cad2b7c685ca18",
+        "type": "function",
+        "z": "6387abeabe798fe7",
+        "name": "Reset Alarmas Manual",
+        "func": "flow.set(\"hay_Riesgo\", false);\n\n\n// apagar buzzer\nmsg.payload = \"BUZZER_OFF\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1720,
+        "y": 280,
+        "wires": [
+            [
+                "e3c9d4e5f6a7"
+            ]
+        ]
+    },
+    {
+        "id": "269546fa785b05f2",
+        "type": "function",
+        "z": "6387abeabe798fe7",
+        "name": "Reset semaforo Manual",
+        "func": ";\nflow.set(\"luz_alarm\", false);\n\n// apagar buzzer\nmsg.payload = \"SEMAFORO_OFF\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1730,
+        "y": 240,
+        "wires": [
+            [
+                "j0e1f2a3b4c5d6e7"
+            ]
+        ]
+    }
+]
