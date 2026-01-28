@@ -1,8 +1,8 @@
-# Contenido de la Carpeta `cloud/`
+# Contenido de la carpeta `cloud/`
 
 Esta carpeta contiene todos los ficheros necesarios para desplegar el entorno de software utilizado tanto en el **Nodo Fog (Raspberry Pi)** como en el **Nodo Cloudlet (PC)**.
 
-## Despliegue del Entorno
+## Despliegue del entorno
 
 Siga estos pasos para un despliegue limpio:
 
@@ -18,7 +18,7 @@ Siga estos pasos para un despliegue limpio:
     docker-compose up -d
     ```
 
-## Estructura de Ficheros
+## Estructura de ficheros
 
 La carpeta debe contener los siguientes elementos:
 
